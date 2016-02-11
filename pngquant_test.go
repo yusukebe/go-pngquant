@@ -14,7 +14,7 @@ func TestCompress(t *testing.T) {
 	info, _ := file.Stat()
 	orgSize := info.Size()
 	orgImg, _ := png.Decode(file)
-	newImg, err := Compress(orgImg)
+	newImg, err := Compress(orgImg, "1")
 	if err != nil {
 		t.Errorf("error has occurred: %v", err)
 	}
