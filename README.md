@@ -23,11 +23,11 @@ import (
 
 #### func Compress
 
-`func Compress(i image.Image) image.Image, error`
+`func Compress(i image.Image, speed string) image.Image, error`
 
 #### func CompressBytes
 
-`func CompressBytes(b []byte) []bytes, error`
+`func CompressBytes(b []byte, speed string) []bytes, error`
 
 ## License
 
