@@ -1,6 +1,7 @@
 # go-pngquant
 
 **go-pngquant** is PNG image compressor go-library that wrapping `pngquant` command.
+`pngquant` command **is required**.
 
 <https://pngquant.org/>
 
