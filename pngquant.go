@@ -26,7 +26,7 @@ func Compress(input image.Image) (output image.Image, err error) {
 }
 
 func CompressBytes(input []byte) (output []byte, err error) {
-	cmd := exec.Command("pngquant", "-", "--speed", "1")
+	cmd := exec.Command("pngquant", "-")
 	cmd.Stdin = strings.NewReader(string(input))
 	var o bytes.Buffer
 	cmd.Stdout = &o
