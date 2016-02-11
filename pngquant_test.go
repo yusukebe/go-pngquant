@@ -1,10 +1,10 @@
 package pngquant
 
 import (
-	"testing"
+	"bytes"
 	"image/png"
 	"os"
-	"bytes"
+	"testing"
 )
 
 func TestCompress(t *testing.T) {
