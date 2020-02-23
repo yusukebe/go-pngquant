@@ -2,13 +2,19 @@ package pngquant
 
 import (
 	"bytes"
+	"fmt"
 	"image"
 	"image/png"
 	"os/exec"
+	"strconv"
 	"strings"
 )
 
 func Compress(input image.Image, speed string) (output image.Image, err error) {
+	if err = speedCheck(speed); err != nil {
+		return
+	}
+
 	var w bytes.Buffer
 	err = png.Encode(&w, input)
 	if err != nil {
@@ -37,5 +43,19 @@ func CompressBytes(input []byte, speed string) (output []byte, err error) {
 	}
 
 	output = o.Bytes()
+	return
+}
+
+func speedCheck(speed string) (err error) {
+	// conversion, as an aside, also forces the speed argument to be a number.
+	speedInt, err := strconv.Atoi(speed)
+	if err != nil {
+		return
+	}
+
+	if speedInt > 10 {
+		return fmt.Errorf("speed cannot exceed value of 10")
+	}
+
 	return
 }
